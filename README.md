@@ -26,15 +26,10 @@ Du kannst das Projekt bequem mit **git** klonen und aktuell halten.
 # Git installieren (Debian)
 sudo apt update && sudo apt install -y git
 ```
-
-### 1) Repository klonen
-> Ersetze `<REPO_URL>` mit deinem Git-Repository (z. B. GitHub/GitLab).  
-> Wenn du das Projekt lokal ohne Remote nutzt, siehe Abschnitt „Eigenes Repo anlegen“.
-
 ```bash
 # Beispiel: in /opt installieren
 cd /opt
-sudo git clone <REPO_URL> debian-installer-modular
+sudo git clone [<REPO_URL>](https://github.com/markmarkinson/Bash-installer.git) debian-installer-modular
 cd debian-installer-modular
 
 # Skripte ausführbar machen
