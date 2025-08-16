@@ -29,7 +29,7 @@ sudo apt update && sudo apt install -y git
 ```bash
 # Beispiel: in /opt installieren
 cd /opt
-sudo git clone [<REPO_URL>](https://github.com/markmarkinson/Bash-installer.git) debian-installer-modular
+sudo git clone https://github.com/markmarkinson/Bash-installer.git debian-installer-modular
 cd debian-installer-modular
 
 # Skripte ausführbar machen
