@@ -17,6 +17,38 @@ Du wählst im Menü gezielt aus, was passieren soll: **Absicherung**, **Webstack
 
 ---
 
+## 🧷 Installation & Updates mit Git
+
+Du kannst das Projekt bequem mit **git** klonen und aktuell halten.
+
+### Voraussetzungen
+```bash
+# Git installieren (Debian)
+sudo apt update && sudo apt install -y git
+```
+
+### 1) Repository klonen
+> Ersetze `<REPO_URL>` mit deinem Git-Repository (z. B. GitHub/GitLab).  
+> Wenn du das Projekt lokal ohne Remote nutzt, siehe Abschnitt „Eigenes Repo anlegen“.
+
+```bash
+# Beispiel: in /opt installieren
+cd /opt
+sudo git clone <REPO_URL> debian-installer-modular
+cd debian-installer-modular
+
+# Skripte ausführbar machen
+sudo chmod +x installer.sh modules/*.sh
+
+# (optional) Defaults anpassen
+sudo cp installer.env.example installer.env
+sudo nano installer.env
+
+# Start
+sudo ./installer.sh
+```
+
+
 ## 📦 Inhalt & Struktur
 
 ```
@@ -34,36 +66,6 @@ debian-installer-modular/
     ├── 60_remove_vhost.sh     # vHost entfernen (inkl. Webroot optional)
     └── 70_restore.sh          # Backups *.bak gezielt/alle zurückspielen
 ```
-
----
-
-## 🚀 Schnellstart
-
-```bash
-# ZIP entpacken
-unzip debian-installer-modular.zip
-cd debian-installer-modular
-
-# Ausführbar machen
-chmod +x installer.sh modules/*.sh
-
-# Start
-sudo bash installer.sh
-```
-
-### Menü-Optionen
-
-1. **System-Update** – führt `apt update` aus (keine Upgrades).
-2. **Server absichern** – erstellt Zufallsnutzer, setzt SSH-Hardening, UFW-Regeln, Fail2ban (sshd), persistente Logs.
-3. **Webstack installieren** – Nginx, PHP‑FPM, MariaDB, **phpMyAdmin** (`/pma-db`, Basic-Auth, nur IP‑Host).
-4. **vHosts anlegen** – interaktiver Dialog (mehrere vHosts).
-5. **ALLES** – führt 1→4 in Reihenfolge aus.
-6. **Let's Encrypt** – Zertifikate per Certbot/nginx, optional HSTS.
-7. **Neuen vHost anlegen** – Schnellmodus für einen vHost.
-8. **vHost entfernen** – Konfiguration + optional Webroot löschen.
-9. **Restore** – `.bak`-Backups gezielt/alle wiederherstellen.
-
-> **Hinweis:** Standardmäßig läuft der Installer im **stillen Modus**. Für ausführlichere Logs `installer.env` verwenden (siehe unten).
 
 ---
 
